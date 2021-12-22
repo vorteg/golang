@@ -1,18 +1,16 @@
-package main // this a convention name
+package main
 
-import "fmt" // this one main package of Golang
+import (
+	"fmt"
+	"myapp/doctor"
+)
 
-//This a name function name convention
+// first run "go mod init myapp" on terminal to create own package
+// Second build doctor structure for this case, can be any outher name
+
 func main() {
-	// golang dosen't allow any unuse variable
-	// var whatToSay string = "Hello world, again from variable"
+	var whatToSay string
 
-	//This other choice to assaign a variable is to define type variable automaticly
-	whatToSay := "Hello world with define type varible"
-	sayHelloWorld(whatToSay)
-}
-
-//How to create another function and called from main
-func sayHelloWorld(whatToSay string) {
+	whatToSay = doctor.Intro()
 	fmt.Println(whatToSay)
 }
