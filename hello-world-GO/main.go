@@ -7,8 +7,7 @@ import (
 	"os"
 )
 
-// first run "go mod init myapp" on terminal to create own package
-// Second build doctor structure for this case, can be any outher name
+// Simple version of a loop
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
@@ -16,7 +15,10 @@ func main() {
 	whatToSay := doctor.Intro()
 	fmt.Println(whatToSay)
 
-	userInput, _ := reader.ReadString('\n')
+	for {
+		userInput, _ := reader.ReadString('\n')
 
-	fmt.Println(userInput)
+		fmt.Println("User commented: " + userInput)
+	}
+
 }
