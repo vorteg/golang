@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"myapp/doctor"
 	"os"
+	"strings"
 )
 
 // Simple version of a loop
@@ -16,9 +17,20 @@ func main() {
 	fmt.Println(whatToSay)
 
 	for {
+		fmt.Print("->")
 		userInput, _ := reader.ReadString('\n')
+		println(userInput)
+		userInput = strings.Replace(userInput, "\r\n", "", -1)
+		println(userInput)
+		userInput = strings.Replace(userInput, "\n", "", -1)
+		println(userInput)
 
-		fmt.Println("User commented: " + userInput)
+		if userInput == "quit" {
+			break
+		} else {
+			fmt.Println(doctor.Response(userInput))
+		}
+
 	}
 
 }
