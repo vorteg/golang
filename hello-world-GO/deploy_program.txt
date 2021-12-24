@@ -1,0 +1,5 @@
+go build -o name_executable main.go
+example on windows OS:
+go build -o eliza.exe main.go
+example linux/macos:
+go build -o eliza main.go
