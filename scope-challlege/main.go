@@ -4,13 +4,10 @@ import (
 	"myapp/packageone"
 )
 
-var myVar = "myvar from package level"
+var myVar = "This is  a package level variable"
 
 func main() {
-	// variables
-	var blockVar = "test"
-	packageone.PrintMe(myVar)
-	packageone.PrintMe(blockVar)
-	packageone.PrintMe(packageone.PackageVar)
 
+	var blockVar = "This is the block level variable"
+	packageone.PrintMe(myVar, blockVar, packageone.PackageVar)
 }
