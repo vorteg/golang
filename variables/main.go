@@ -15,11 +15,21 @@ func main() {
 	// seed the random number generator
 	rand.Seed(time.Now().UnixNano())
 
+	// rand generates a number between 0 and watever is passed as a parameter
+	// we add 2 to it because we want the number used to be at least 2, and no
+	// greater than 10 (multiplying by 1 makes the game a bit silly)
+
 	var firstNumber = rand.Intn(8) + 2
 	var secondNumber = rand.Intn(8) + 2
 	var subtraction = rand.Intn(8) + 2
-	var answer int
+	var answer = firstNumber*secondNumber - subtraction
 
+	playTheGame(firstNumber, secondNumber, subtraction, answer)
+}
+
+//Implenting a function "One function, one prpose"
+func playTheGame(firstNumber, secondNumber, subtraction, answer int) {
+	// create our reader variable, wich reads input from standard in (the keyboard)
 	reader := bufio.NewReader((os.Stdin))
 
 	// display a welcome/instructions
@@ -44,6 +54,5 @@ func main() {
 	reader.ReadString('\n')
 
 	// give them the answer
-	answer = firstNumber*secondNumber - subtraction
 	fmt.Println("The answer is", answer)
 }
