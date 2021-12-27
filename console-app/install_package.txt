@@ -1,0 +1,4 @@
+To install package from github, execute follows command:
+go get -u github.com/repository/...
+example:
+go get -u github.com/eiannone/keyboard
