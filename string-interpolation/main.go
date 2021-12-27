@@ -10,18 +10,25 @@ import (
 
 var reader *bufio.Reader
 
+//Defing our variable types
+type User struct {
+	UserName        string
+	Age             int
+	FavouriteNumber float64
+	OwnsDog         bool
+}
+
 func main() {
 	reader = bufio.NewReader(os.Stdin)
-	userName := readString("What is your name?")
 
-	age := readInt("How old are you?")
+	var user User
 
-	//Different ways to conactenate strings or string interpolation
-	//fmt.Println("Your name is ", userName, "and you are", age, "years old.")
-	//fmt.Println("Your name is "+ userName + ". You are", age, "years old.")
-	//Here de more efficent way to parse variables and concatenate
-	//fmt.Println(fmt.Sprintf("Your name is %s. You are %d years old", userName, age))
-	fmt.Printf("Your name is %s. You are %d years old.\n", userName, age)
+	user.UserName = readString("What is your name?")
+	user.Age = readInt("How old are you?")
+	user.FavouriteNumber = readFloat("What is your favourite number?")
+
+	//%.2.f 2 is the numbers after "."
+	fmt.Println(fmt.Sprintf("Your name is %s. You are %d years old. Your favourite number is %.2f.", user.UserName, user.Age, user.FavouriteNumber))
 }
 
 func prompt() {
@@ -62,4 +69,25 @@ func readInt(s string) int {
 		}
 
 	}
+
+}
+
+func readFloat(s string) float64 {
+	for {
+		fmt.Println(s)
+		prompt()
+
+		userInput, _ := reader.ReadString('\n')
+		userInput = strings.Replace(userInput, "\r\n", "", -1)
+		userInput = strings.Replace(userInput, "\n", "", -1)
+
+		num, err := strconv.ParseFloat(userInput, 64)
+		if err != nil {
+			fmt.Println("Please enter a number")
+		} else {
+			return num
+		}
+
+	}
+
 }
