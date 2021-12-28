@@ -1,30 +1,46 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 // reference types (pointers, slices, maps, functions, channels)
 
 // interface type
 
-//Pointers allows modify values directly to having access to allocation memory address
-// with no parse variable or change scope
+//slices
 func main() {
-	var myInt int
-	myInt = 10
+	var animals []string
+	animals = append(animals, "dog")
+	animals = append(animals, "fish")
+	animals = append(animals, "cat")
+	animals = append(animals, "horse")
 
-	myFirstPointer := &myInt // with "&" we can have acces to variable address
+	fmt.Println(animals)
 
-	fmt.Println(myInt)
-	fmt.Println("myFirstPointer is ", myFirstPointer)
+	//slice and maps iteration
 
-	*myFirstPointer = 15 // with "*" we can change the value directly of a variable
+	for i, x := range animals {
+		fmt.Println(i, x)
+	}
 
-	fmt.Println("myInt is now", myInt)
+	fmt.Println("Element 0 is", animals[0])
+	fmt.Println("First two elements are ", animals[0:2])
+	fmt.Println("The slice is ", len(animals), "elements long")
+	fmt.Println("Is it sorted?", sort.StringsAreSorted(animals))
+	sort.Strings(animals)
+	fmt.Println("Is it sorted now?", sort.StringsAreSorted(animals))
+	fmt.Println(animals)
 
-	changeValueOfPointer(&myInt)
-	fmt.Println("After function call, myInt is noe", myInt)
+	animals = DeleteFromSlice(animals, 1)
+	fmt.Println(animals)
+
 }
 
-func changeValueOfPointer(num *int) {
-	*num = 25
+func DeleteFromSlice(a []string, i int) []string {
+	a[i] = a[len(a)-1]
+	a[len(a)-1] = ""
+	a = a[:len(a)-1]
+	return a
 }
