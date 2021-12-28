@@ -2,40 +2,29 @@ package main
 
 import "fmt"
 
-// aggregate types (array, struct)
-//array
-// var myStrings [3]string
-// myStrings[0] = "cat"
-// myStrings[1] = "dog"
-// myStrings[2] = "fish"
-
-// fmt.Println("First element in array is", myStrings[0])
-
 // reference types (pointers, slices, maps, functions, channels)
 
 // interface type
 
-//struct
-type Car struct {
-	NumberOfTires int
-	Luxury        bool
-	BucketSeats   bool
-	Make          string
-	Model         string
-	Year          int
+//Pointers allows modify values directly to having access to allocation memory address
+// with no parse variable or change scope
+func main() {
+	var myInt int
+	myInt = 10
+
+	myFirstPointer := &myInt // with "&" we can have acces to variable address
+
+	fmt.Println(myInt)
+	fmt.Println("myFirstPointer is ", myFirstPointer)
+
+	*myFirstPointer = 15 // with "*" we can change the value directly of a variable
+
+	fmt.Println("myInt is now", myInt)
+
+	changeValueOfPointer(&myInt)
+	fmt.Println("After function call, myInt is noe", myInt)
 }
 
-func main() {
-
-	myCar := Car{
-		NumberOfTires: 4,
-		Luxury:        true,
-		BucketSeats:   true,
-		Make:          "Volvo",
-		Model:         "XC90",
-		Year:          2019,
-	}
-
-	fmt.Printf("My car is a %d %s %s \n", myCar.Year, myCar.Make, myCar.Model)
-
+func changeValueOfPointer(num *int) {
+	*num = 25
 }
