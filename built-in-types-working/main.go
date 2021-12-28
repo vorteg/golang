@@ -1,46 +1,39 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-)
+import "fmt"
 
 // reference types (pointers, slices, maps, functions, channels)
 
 // interface type
 
-//slices
+//maps
 func main() {
-	var animals []string
-	animals = append(animals, "dog")
-	animals = append(animals, "fish")
-	animals = append(animals, "cat")
-	animals = append(animals, "horse")
+	intMap := make(map[string]int)
 
-	fmt.Println(animals)
+	intMap["one"] = 1
+	intMap["two"] = 2
+	intMap["three"] = 3
+	intMap["four"] = 4
+	intMap["five"] = 5
 
-	//slice and maps iteration
-
-	for i, x := range animals {
-		fmt.Println(i, x)
+	for key, value := range intMap {
+		fmt.Println(key, value)
 	}
 
-	fmt.Println("Element 0 is", animals[0])
-	fmt.Println("First two elements are ", animals[0:2])
-	fmt.Println("The slice is ", len(animals), "elements long")
-	fmt.Println("Is it sorted?", sort.StringsAreSorted(animals))
-	sort.Strings(animals)
-	fmt.Println("Is it sorted now?", sort.StringsAreSorted(animals))
-	fmt.Println(animals)
+	//delete a key
+	//delete(intMap, "four")
 
-	animals = DeleteFromSlice(animals, 1)
-	fmt.Println(animals)
+	//check if exist a key is in map
 
-}
+	el, ok := intMap["four"]
+	if ok {
+		fmt.Println(el, "is in map")
+	} else {
+		fmt.Println(el, "is in not map")
+	}
 
-func DeleteFromSlice(a []string, i int) []string {
-	a[i] = a[len(a)-1]
-	a[len(a)-1] = ""
-	a = a[:len(a)-1]
-	return a
+	// modify a value
+
+	intMap["two"] = 4
+
 }
