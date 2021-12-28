@@ -1,40 +1,41 @@
 package main
 
-import "log"
-
-// basic types (numbers, strings, booleans)
-var myInt int
-var myInt16 int16
-var myInt32 int32
-var myInt64 int64
-
-var myUnit uint // unsigned value
-
-var myFloat float32
-var myFLoat64 float64
+import "fmt"
 
 // aggregate types (array, struct)
+//array
+// var myStrings [3]string
+// myStrings[0] = "cat"
+// myStrings[1] = "dog"
+// myStrings[2] = "fish"
+
+// fmt.Println("First element in array is", myStrings[0])
 
 // reference types (pointers, slices, maps, functions, channels)
 
 // interface type
 
+//struct
+type Car struct {
+	NumberOfTires int
+	Luxury        bool
+	BucketSeats   bool
+	Make          string
+	Model         string
+	Year          int
+}
+
 func main() {
-	myInt = 10
-	myUnit = 20
 
-	myFloat = 10.1
-	myFLoat64 = 100.1
+	myCar := Car{
+		NumberOfTires: 4,
+		Luxury:        true,
+		BucketSeats:   true,
+		Make:          "Volvo",
+		Model:         "XC90",
+		Year:          2019,
+	}
 
-	log.Println(myInt, myUnit, myFloat, myFLoat64)
+	fmt.Printf("My car is a %d %s %s \n", myCar.Year, myCar.Make, myCar.Model)
 
-	myString := "Trevor"
-
-	log.Println(myString)
-
-	myString = "John" // We can chang the string but not the type since is inmutable
-	log.Println(myString)
-
-	var myBool = true
-	log.Println(myBool)
 }
