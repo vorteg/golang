@@ -1,24 +1,37 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-//Here an example of  how to use go rutines
+	"github.com/eiannone/keyboard"
+)
+
+// Here a basic channels feature example
+var keyPressChan chan rune
 
 func main() {
-	go doSomthing("Hello, world")
-	fmt.Println("This is another message")
+	keyPressChan = make(chan rune)
+
+	go listenForKeyPres()
+	fmt.Println("Press any key, or q to quit")
+	_ = keyboard.Open()
+	defer func() {
+		keyboard.Close()
+	}()
+
 	for {
-		// do nothing
+		char, _, _ := keyboard.GetSingleKey()
+		if char == 'q' || char == 'Q' {
+			break
+		}
+
+		keyPressChan <- char
 	}
 }
 
-func doSomthing(s string) {
-	until := 0
+func listenForKeyPres() {
 	for {
-		fmt.Println("s is ", s)
-		until = until + 1
-		if until >= 5 {
-			break
-		}
+		key := <-keyPressChan
+		fmt.Println("You pressed", string(key))
 	}
 }
