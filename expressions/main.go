@@ -3,12 +3,26 @@ package main
 import "fmt"
 
 func main() {
-	age := 10
-	name := "jack"
-	rightHanded := true
-	//This is an expression ->
-	fmt.Printf("%s is %d years old. Right handed: %t", name, age, rightHanded)
-	//This another expresion
-	ageTeen := age >= 20
+	apples := 18
+	oranges := 9
+
+	// boolean expression
+	fmt.Println(apples == oranges)
+	fmt.Println(apples != oranges)
+
+	//This operation dosen't allow
+	// if apples == "10"{
+
+	// }
+
+	// >< >= <=
+	fmt.Printf("%d > %d: %t", apples, oranges, apples > oranges)
+	fmt.Println()
+	fmt.Printf("%d < %d: %t", apples, oranges, apples < oranges)
+	fmt.Println()
+	fmt.Printf("%d >= %d: %t", apples, oranges, apples >= oranges)
+	fmt.Println()
+	fmt.Printf("%d <= %d: %t", apples, oranges, apples <= oranges)
+	fmt.Println()
 
 }
