@@ -1,20 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
-	//infinit loop
-	// for {
-
-	// }
-	// WHen we have an index
-	// for _, x := range myMap {
-
-	// }
-
-	//having a condition
-	for i := 0; i <= 10; i++ {
+	// while loop
+	rand.Seed(time.Now().UnixNano())
+	i := 1000
+	// execute a loop while i > 100
+	for i > 100 {
+		// get a random nummber between 1 and 1001
+		i = rand.Intn(1000) + 1
 		fmt.Println("i is ", i)
-	} // also is posible use i-- or i= i-1
+		if i > 100 {
+			fmt.Println("i is", i, "so loop keeps going")
+		}
+	}
 
+	fmt.Println("Got", i, "and broke out of loop")
 }
