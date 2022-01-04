@@ -37,19 +37,34 @@ func main() {
 	fmt.Println("Q - Quit the program")
 
 	char := ' '
-	for char != 'q' && char != 'Q' {
+	// for {
+	// 	char, _, err = keyboard.GetSingleKey()
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
+
+	// 	if char == 'q' || char == 'Q' {
+	// 		break
+	// 	}
+
+	// 	i, _ := strconv.Atoi(string(char))
+
+	// 	if _, ok := coffees[i]; ok {
+	// 		fmt.Printf("You chose %s \n", coffees[i])
+	// 	}
+	// 	fmt.Println("Select a product from the Menu, please")
+
+	// }
+
+	// It's the same that
+
+	for ok := true; ok; ok = char != 'q' && char != 'Q' {
 		char, _, err = keyboard.GetSingleKey()
 		if err != nil {
 			log.Fatal(err)
 		}
 
 		i, _ := strconv.Atoi(string(char))
-
-		//which is better?
-		// _, ok := coffees[i]
-		// if ok {
-		// 	fmt.Printf("You chose %s \n", coffees[i])
-		// }
 
 		if _, ok := coffees[i]; ok {
 			fmt.Printf("You chose %s \n", coffees[i])
