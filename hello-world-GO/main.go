@@ -19,16 +19,12 @@ func main() {
 	for {
 		fmt.Print("->")
 		userInput, _ := reader.ReadString('\n')
-		println(userInput)
 		userInput = strings.Replace(userInput, "\r\n", "", -1)
-		println(userInput)
 		userInput = strings.Replace(userInput, "\n", "", -1)
-		println(userInput)
 
+		fmt.Println(doctor.Response(userInput))
 		if userInput == "quit" {
 			break
-		} else {
-			fmt.Println(doctor.Response(userInput))
 		}
 
 	}
