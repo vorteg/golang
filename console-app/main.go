@@ -44,8 +44,14 @@ func main() {
 		}
 
 		i, _ := strconv.Atoi(string(char))
-		_, ok := coffees[i]
-		if ok {
+
+		//which is better?
+		// _, ok := coffees[i]
+		// if ok {
+		// 	fmt.Printf("You chose %s \n", coffees[i])
+		// }
+
+		if _, ok := coffees[i]; ok {
 			fmt.Printf("You chose %s \n", coffees[i])
 		}
 		fmt.Println("Select a product from the Menu, please")
