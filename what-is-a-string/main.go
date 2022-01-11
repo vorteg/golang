@@ -6,30 +6,20 @@ import (
 )
 
 func main() {
-	str := "alpha alpha alpha alpha alpha"
-	str = replaceNth(str, "alpha", "beta", 3)
-	fmt.Println(str)
+	myString := "This is a clear example of why we search in one case only"
 
-}
+	if strings.Contains(myString, "this") {
 
-func replaceNth(s, old, new string, n int) string {
-	// index
-	i := 0
+		if strings.Contains(myString, "this") {
+			fmt.Println("Found it!")
 
-	for j := 1; j <= n; j++ {
-		x := strings.Index(s[i:], old)
-		if x < 0 {
-			// we did not find it
-			break
+		} else {
+			fmt.Println("DId not find it!")
 		}
-
-		// have found it
-		i = i + x
-		if j == n {
-			return s[:i] + new + s[i+len(old):]
-		}
-
-		i += len(old)
 	}
-	return s
+
+	// other case functions
+	fmt.Println(strings.ToLower(myString))
+	fmt.Println(strings.ToUpper(myString))
+	fmt.Println(strings.Title(myString))
 }
