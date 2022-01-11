@@ -6,26 +6,28 @@ import (
 )
 
 func main() {
-	courses := []string{
-		"Learn Go for Beginners Crash Course ",
-		"Learn Java for Beginners Crash Course ",
-		"Learn Python for Beginners Crash Course ",
-		"Learn C for Beginners Crash Course ",
+
+	newString := "Go is a great programing language. Go for it!"
+
+	if strings.Contains(newString, "Go") {
+
+		newString = strings.ReplaceAll(newString, "Go", "Golang")
+		//newString = strings.Replace(newString, "Go", "Golang", 1) // by -1 repleace all words
 	}
 
-	for _, x := range courses {
-		if strings.Contains(x, "Go") {
-			fmt.Println("Go is found in ", x, "and index is ", strings.Index(x, "Go"))
-		}
+	fmt.Println(newString)
+
+	// string comparison
+	if "Alpha" > "Absolute" {
+		fmt.Println("A is greater than B")
+
+	} else {
+		fmt.Println("A is not greater than B")
 	}
 
-	newString := "Go is a great programing language.Go for it!"
-
-	fmt.Println(strings.HasPrefix(newString, "Go"))
-	fmt.Println(strings.HasPrefix(newString, "Python"))
-	fmt.Println(strings.HasPrefix(newString, "!"))
-	fmt.Println(strings.Count(newString, "Go"))
-	fmt.Println(strings.Index(newString, "Go"))
-	fmt.Println(strings.Index(newString, "Python"))
-	fmt.Println(strings.LastIndex(newString, "Go"))
+	badEMail := " me@here.com "
+	//Deleting spaces
+	badEMail = strings.TrimSpace(badEMail)
+	fmt.Printf("=%s=", badEMail)
+	fmt.Println()
 }
