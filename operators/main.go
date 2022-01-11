@@ -1,36 +1,18 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	// Precedence
-	// multiplication and division
-	a := 12.0 * 3.0 / 4.0
-	b := (12.0 * 3.0) / 4.0
-	c := 12.0 * (3.0 / 4.0)
+	// does one number divide exactly into another?
+	// x := 12
+	// y := 3
 
-	fmt.Println("a", a, "b", b, "c", c)
+	// if x%y == 0 {
+	// 	fmt.Println(y, "divides exactly into ", x)
+	// } else {
+	// 	fmt.Println(y, "does not divide exactly into ", x)
+	// }
 
-	// integer division
-	unclear := 12 * (3 / 4)
-	fmt.Println("unclear", unclear)
-
-	// parenthesis
-	f := 12.0 / 3.0 / 4.0
-	fmt.Println("f", f)
-	f = 12.0 / (3.0 / 4.0)
-	fmt.Println("f", f)
-
-	// addition/ subtracction
-	fmt.Println()
-	x := 12 + 3 - 4
-	y := (12 + 3) - 4
-	z := 12 + (3 - 4)
-	fmt.Println("x", x, "y", y, "z", z)
-	x = 12 + 3*4
-	y = (12 + 3) * 4
-	z = 12 + (3 * 4)
-	fmt.Println("x", x, "y", y, "z", z)
+	thisMonth := 4
+	fmt.Println("The montha after", thisMonth, "is", thisMonth+1)
 }
