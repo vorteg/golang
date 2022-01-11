@@ -1,15 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
-	second := 31
-	minute := 1
-	// the parentesis makes the code more readable but is redundant and not necessary
-	if (minute < 59) && ((second + 1) > 59) {
-		minute++
+	a := 12
+	b := 6
+
+	c, err := divideTwoNumbers(a, b)
+
+	if err != nil {
+		fmt.Print(err)
+	} else {
+		if c == 2 {
+			fmt.Println("we found a two")
+		}
 	}
 
-	fmt.Println(minute)
+}
 
+func divideTwoNumbers(x, y int) (int, error) {
+
+	if y == 0 {
+		return 0, errors.New("cannot divide by 0")
+	}
+	return x / y, nil
 }
