@@ -3,16 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	// does one number divide exactly into another?
-	// x := 12
-	// y := 3
+	second := 31
+	minute := 1
+	// the parentesis makes the code more readable but is redundant and not necessary
+	if (minute < 59) && ((second + 1) > 59) {
+		minute++
+	}
 
-	// if x%y == 0 {
-	// 	fmt.Println(y, "divides exactly into ", x)
-	// } else {
-	// 	fmt.Println(y, "does not divide exactly into ", x)
-	// }
+	fmt.Println(minute)
 
-	thisMonth := 4
-	fmt.Println("The montha after", thisMonth, "is", thisMonth+1)
 }
