@@ -6,28 +6,30 @@ import (
 )
 
 func main() {
+	str := "alpha alpha alpha alpha alpha"
+	str = replaceNth(str, "alpha", "beta", 3)
+	fmt.Println(str)
 
-	newString := "Go is a great programing language. Go for it!"
+}
 
-	if strings.Contains(newString, "Go") {
+func replaceNth(s, old, new string, n int) string {
+	// index
+	i := 0
 
-		newString = strings.ReplaceAll(newString, "Go", "Golang")
-		//newString = strings.Replace(newString, "Go", "Golang", 1) // by -1 repleace all words
+	for j := 1; j <= n; j++ {
+		x := strings.Index(s[i:], old)
+		if x < 0 {
+			// we did not find it
+			break
+		}
+
+		// have found it
+		i = i + x
+		if j == n {
+			return s[:i] + new + s[i+len(old):]
+		}
+
+		i += len(old)
 	}
-
-	fmt.Println(newString)
-
-	// string comparison
-	if "Alpha" > "Absolute" {
-		fmt.Println("A is greater than B")
-
-	} else {
-		fmt.Println("A is not greater than B")
-	}
-
-	badEMail := " me@here.com "
-	//Deleting spaces
-	badEMail = strings.TrimSpace(badEMail)
-	fmt.Printf("=%s=", badEMail)
-	fmt.Println()
+	return s
 }
