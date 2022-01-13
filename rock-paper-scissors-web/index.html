@@ -12,9 +12,9 @@
     <div class="container">
         <h1 class="mt-4">Rock , Paper, & Scissors</h1>
         <hr>
-        <p id="player_choice">&nbsp;</p>
-        <p id="computer_choice">&nbsp;</p>
-        <p id="round_result">&nbsp;</p>
+        <p id="player_choice" class="text-success">&nbsp;</p>
+        <p id="computer_choice"class="text-secondary">&nbsp;</p>
+        <p id="round_result" class="text-danger">&nbsp;</p>
         
         <hr>
         <p>Choose rock, paper, or scissors!</p>
@@ -31,14 +31,19 @@
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            
+            if(x == 0) {
+                document.getElementById("player_choice").innerHTML = "Player chose Rock!"
+            }else if (x == 1){
+                document.getElementById("player_choice").innerHTML = "Player chose Paper!"
+            }else{
+                document.getElementById("player_choice").innerHTML = "Player chose Scissors!"
+            }
+            document.getElementById("computer_choice").innerHTML = data.computer_choice;
+            document.getElementById("round_result").innerHTML = data.round_result;
+
         })
-        if(x == 0) {
-            document.getElementById("player_choice").innerHTML = "You clicked Rock!"
-        }else if (x == 1){
-            document.getElementById("player_choice").innerHTML = "You clicked Paper!"
-        }else{
-            document.getElementById("player_choice").innerHTML = "You clicked Scissors!"
-        }
+        
         
     }
 </script>
