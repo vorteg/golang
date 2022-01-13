@@ -15,7 +15,7 @@ const (
 )
 
 type Round struct {
-	Winner         int    `json:"winner"`
+	Winner         int    `json:"winner"` //This is how to will be represented on html
 	ComputerChoice string `json:"computer_choice"`
 	RoundResult    string `json:"round_result"`
 }
